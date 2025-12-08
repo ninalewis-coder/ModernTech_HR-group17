@@ -13,11 +13,7 @@
         </div>
         <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h1>Payroll Management</h1>
-                    <p class="text-muted">Process payroll and generate payslips</p>
-                </div>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#payrollModal">
+                <button class="btn btn-dark float-end" data-bs-toggle="modal" data-bs-target="#payrollModal">
                     <i class="bi bi-plus-circle"></i> Process Payroll
                 </button>
             </div>

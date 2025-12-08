@@ -8,7 +8,7 @@
                      alt="logo"
                      class="responsive-logo"
                      />
-                    <div class="welcome-card" style="background: linear-gradient(to right, rgb(122, 108, 202), #8f94fb)">
+                    <div class="welcome-card" style="background: linear-gradient(to right, rgb(122, 108, 202), rgb(161, 150, 225))">
                         <div class="card-body" style="color:white">
                             <h5 class="card-title" style="font-size:xx-large;">
                                 Hello {{ userName }}!
@@ -303,7 +303,7 @@ onMounted(() => {
 .welcome-card {
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(138, 124, 246, 0.1);
 }
 
 .metric-card {
@@ -320,9 +320,9 @@ onMounted(() => {
     box-shadow: 0 4px 8px #00000026;
 }
 
-/* .card-body {
+.card{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.229);
     border-radius: 10px;
-} */
+}
 </style>
 

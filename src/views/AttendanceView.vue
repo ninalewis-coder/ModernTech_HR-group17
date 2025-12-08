@@ -12,11 +12,7 @@
             </div>
         </div>        
         <div class="container-fluid">
-            <div class="mb-4">
-                <h1>Attendance Management</h1>
-                <p class="text-muted">Track employee attendance and generate reports</p>
-            </div>
-
+            <div class="filter">
             <!-- Search and Filter -->
             <div class="row mb-4">
                 <div class="col-md-4 mb-3">
@@ -38,6 +34,7 @@
                 <div class="col-md-4 mb-3">
                     <input type="date" class="form-control" v-model="selectedDate" />
                 </div>
+            </div>
             </div>
 
             <!-- Attendance Summary Cards -->
@@ -111,6 +108,7 @@
             </div>
 
             <!-- Statistics -->
+          <div class="statistics">
             <div class="row mt-4">
                 <div class="col-md-4 col-sm-6 mb-3">
                     <div class="card">
@@ -137,6 +135,7 @@
                     </div>
                 </div>
             </div>
+          </div>
         </div>
     </div> 
 </template>
@@ -242,9 +241,14 @@ onMounted(() => {
     padding-bottom: 30px;
 }
 
-h1 {
-    color: rgb(122, 108, 202);
-    margin: 20px;
+.filter {
+    padding-top: 15px;
+
+}
+
+.card-header {
+    background-color: rgb(122, 108, 202);
+    color: white;
     font-weight: bold;
 }
 
@@ -269,4 +273,10 @@ h1 {
         padding-top: 100px;
     }
 }
+
+.statistics .card {
+    background-color: rgba(0, 0, 0, 0.871);
+    color: white;
+}
+ 
 </style>
