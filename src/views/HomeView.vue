@@ -3,7 +3,12 @@
         <div>
             <div>
                 <div class="col-md-12 col-sm-12 mb-12">
-                    <div class="card" style="background-color: rgb(122, 108, 202);">
+                    <img
+                     src="/src/assets/ModernTech-light.png"
+                     alt="logo"
+                     class="responsive-logo"
+                     />
+                    <div class="welcome-card" style="background: linear-gradient(to right, rgb(122, 108, 202), #8f94fb)">
                         <div class="card-body" style="color:white">
                             <h5 class="card-title" style="font-size:xx-large;">
                                 Hello {{ userName }}!
@@ -16,9 +21,9 @@
             </div>
 
             <!-- Key Metrics -->
-            <div class="row mb-4">
+            <div class="row mb-4 pt-4 ">
                 <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card">
+                    <div class="metric-card card h-100 w-100">
                         <div class="card-body">
                             <h5 class="card-title">Total Employees</h5>
                             <p class="card-text fw-bold fs-3">{{ totalEmployees }}</p>
@@ -26,7 +31,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card">
+                    <div class="metric-card card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Pending Leave Requests</h5>
                             <p class="card-text fw-bold fs-3">{{ pendingLeaveRequests }}</p>
@@ -34,15 +39,15 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card">
+                    <div class="metric-card card h-80 w-80">
                         <div class="card-body">
                             <h5 class="card-title">Pending Payroll</h5>
-                            <p class="card-text">{{ 9 }}.</p>
+                            <p class="card-text fw-bold fs-3">{{ "?" }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card">
+                    <div class="metric-card card h-100 w-100">
                         <div class="card-body">
                             <h5 class="card-title">Departments</h5>
                             <p class="card-text fw-bold fs-3">{{ totalDepartments }}</p>
@@ -55,7 +60,7 @@
             <div class="row mb-4">
                 <div class="col-lg-6 mb-4">
                     <div class="card">
-                        <div class="card-header bg-primary text-white">
+                        <div class="card-header" style="background-color: rgb(122, 108, 202); color: white;">
                             <h5 class="mb-0 fw-bold">
                                 <i class="bi bi-bar-chart-fill"></i> Employees by Department
                             </h5>
@@ -84,7 +89,7 @@
 
                 <div class="col-lg-6 mb-4">
                     <div class="card">
-                        <div class="card-header bg-success text-white">
+                        <div class="card-header" style="background-color: rgb(122, 108, 202); color: white;">
                             <h5 class="mb-0 fw-bold">
                                 <i class="bi bi-pie-chart-fill"></i> Leave Request Status
                             </h5>
@@ -124,12 +129,12 @@
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color: rgb(122, 108, 202); color: white;">
                             <h5 class="mb-0 fw-bold">
                                 <i class="bi bi-clock-history"></i> Recent Attendance
                             </h5>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body ">
                             <ul class="list-group list-group-flush">
                                 <li v-for="record in recentAttendance" :key="record.id" class="list-group-item">
                                     <div class="d-flex justify-content-between">
@@ -147,7 +152,7 @@
 
                 <div class="col-lg-6 mb-4">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color: rgb(122, 108, 202); color: white;">
                             <h5 class="mb-0 fw-bold">
                                 <i class="bi bi-award"></i> Top Performing Departments
                             </h5>
@@ -157,7 +162,7 @@
                                 <li v-for="(dept, index) in topDepartments" :key="dept.name" class="list-group-item">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div>
-                                            <span class="badge bg-primary me-2">{{ index + 1 }}</span>
+                                            <span class="badge bg-dark me-2">{{ index + 1 }}</span>
                                             <strong>{{ dept.name }}</strong>
                                         </div>
                                         <span class="badge bg-success">{{ dept.count }} employees</span>
@@ -285,24 +290,39 @@ onMounted(() => {
 
 <style scoped>
 .home-container {
-    padding-top: 100px;
+    padding-top: 50px;
     margin: 20px;
+}
+.responsive-logo {
+   display: block;
+    margin: 0 auto;
+  width: 60%;
+  max-width: 280px;
 }
 
 .welcome-card {
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .metric-card {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.871);
+    color: white;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.968);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .metric-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px #00000026;
 }
+
+/* .card-body {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.229);
+    border-radius: 10px;
+} */
 </style>
 
