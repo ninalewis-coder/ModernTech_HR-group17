@@ -20,7 +20,7 @@
 
             <!-- Payroll Statistics -->
             <div class="row mb-4">
-                <div class="col-lg- col-md-6 col-sm-12 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                     <div class="card bg-info text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Total Payroll</h6>
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg- col-md-6 col-sm-12 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                     <div class="card bg-success text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Avg Salary</h6>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg- col-md-6 col-sm-12 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                     <div class="card bg-warning text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Total Hours</h6>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg- col-md-6 col-sm-12 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                     <div class="card bg-danger text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Deductions</h6>
