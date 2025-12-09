@@ -2,7 +2,7 @@
     <div class="leave-container">
         <div>
             <div class="col-md-12 col-sm-12 mb-12">
-                <div class="card m-1" style="background-color: rgb(122, 108, 202);">
+                <div class="card m-1" style="background: linear-gradient(to right, rgb(122, 108, 202), rgb(161, 150, 225))">
                     <div class="card-body" style="color:white">
                         <h5 class="card-title" style="font-size:xx-large;">
                             Leave Management
@@ -14,7 +14,7 @@
 
         <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#leaveModal">
+                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#leaveModal">
                     <i class="bi bi-plus-circle"></i> Request Leave
                 </button>
             </div>
@@ -22,7 +22,7 @@
             <!-- Request Statistics -->
             <div class="row mb-4">
                 <div class="col-md-4 mb-3">
-                    <div class="card bg-warning text-white">
+                    <div class="card bg-warning text-dark">
                         <div class="card-body text-center">
                             <h6 class="card-title">Pending Requests</h6>
                             <h2>{{ pendingCount }}</h2>
@@ -49,7 +49,7 @@
 
             <!-- Tabs for Different Views -->
             <div class="card">
-                <div class="card-header">
+                <div class="card-header" style="background-color: rgb(122, 108, 202);">
                     <ul class="nav nav-tabs card-header-tabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button 
@@ -62,7 +62,7 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <button 
-                                class="nav-link" 
+                                class="nav-link"
                                 @click="activeTab = 'pending'"
                                 :class="{ active: activeTab === 'pending' }"
                             >
@@ -71,7 +71,7 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <button 
-                                class="nav-link" 
+                                class="nav-link"
                                 @click="activeTab = 'approved'"
                                 :class="{ active: activeTab === 'approved' }"
                             >
@@ -92,7 +92,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-hover">
-                            <thead class="table-light">
+                            <thead class="table-dark">
                                 <tr>
                                     <th>Employee</th>
                                     <th>Leave Type</th>
@@ -364,11 +364,6 @@ onMounted(() => {
     padding-bottom: 30px;
 }
 
-h1 {
-    color: rgb(122, 108, 202);
-    font-weight: bold;
-}
-
 .card {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -376,6 +371,7 @@ h1 {
 
 .nav-link {
     cursor: pointer;
+    color: white;
 }
 
 .table-responsive {
@@ -388,4 +384,5 @@ h1 {
         padding-top: 100px;
     }
 }
+
 </style>
