@@ -55,12 +55,12 @@ import { RouterLink } from "vue-router"
           
           <li class="nav-item dropdown mt-auto">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              store.currentUser.name
+              <i class="bi bi-person"></i> Group-17
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li>
                 <small class="dropdown-item">
-                store.currentUser.name
+                Admin
                 </small>
               </li>
               <li>
@@ -68,7 +68,7 @@ import { RouterLink } from "vue-router"
               </li>
               <li>
                 <RouterLink to="" class="dropdown-item" href="#">
-                  Logout
+                  <i class="bi bi-box-arrow-right"></i> Logout
                 </RouterLink>
               </li>
             </ul>
