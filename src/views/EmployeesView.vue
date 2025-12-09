@@ -1,15 +1,24 @@
 <template>
     <div class="employees-container">
-        <div class="container-fluid">
+        <div>
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h1>Employees Management</h1>
-                    <p class="text-muted">Manage employee information and records</p>
+                <div class="col-md-12 col-sm-12 mb-12">
+                    <div class="card m-1" style="background-color: rgb(122, 108, 202);">
+                        <div class="card-body" style="color:white">
+                            <h5 class="card-title" style="font-size:xx-large;">
+                                Employee Management
+                            </h5>
+                        </div>
+                    </div>
                 </div>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
-                    <i class="bi bi-plus-circle"></i> Add Employee
-                </button>
-            </div>
+            </div> 
+        </div>
+        <div class="container-fluid">
+            <button class="btn btn-dark float-end" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
+                <i class="bi bi-plus-circle"></i> Add Employee
+            </button>
+        </div>
+
 
             <!-- Search and Statistics -->
             <div class="row mb-4">
@@ -33,7 +42,7 @@
 
             <!-- Statistics Cards -->
             <div class="row mb-4">
-                <div class="col-md-3 col-sm-6 mb-3">
+                <div class="col-md-6 col-sm-6 mb-3">
                     <div class="card bg-primary text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Total Employees</h6>
@@ -75,7 +84,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-hover">
-                            <thead class="table-light">
+                            <thead class="table-dark">
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
@@ -318,11 +327,6 @@ onMounted(() => {
 .employees-container {
     padding-top: 90px;
     padding-bottom: 30px;
-}
-
-h1 {
-    color: rgb(136, 85, 238);
-    font-weight: bold;
 }
 
 .card {

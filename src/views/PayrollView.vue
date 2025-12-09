@@ -2,7 +2,7 @@
     <div class="payroll-container">
         <div>
             <div class="col-md-12 col-sm-12 mb-12">
-                <div class="card m-1" style="background-color: rgb(122, 108, 202);">
+                <div class="card m-1" style="background: linear-gradient(to right, rgb(122, 108, 202), rgb(161, 150, 225))">
                     <div class="card-body" style="color:white">
                         <h5 class="card-title" style="font-size:xx-large;">
                             Payroll Management
@@ -60,7 +60,7 @@
 
             <!-- Payroll Records Table -->
             <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex justify-content-between align-items-center" style="background-color: rgb(122, 108, 202); color: white;">
                     <h5 class="mb-0">Payroll Records</h5>
                     <button class="btn btn-sm btn-success" @click="generateAllPayslips">
                         Generate All Payslips
@@ -69,7 +69,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-hover">
-                            <thead class="table-light">
+                            <thead class="table-dark">
                                 <tr>
                                     <th>Employee</th>
                                     <th>Department</th>
@@ -350,11 +350,6 @@ onMounted(() => {
 .payroll-container {
     padding-top: 80px;
     padding-bottom: 30px;
-}
-
-h1 {
-    color: rgb(136, 85, 238);
-    font-weight: bold;
 }
 
 .card {
