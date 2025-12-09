@@ -68,7 +68,9 @@
             <!-- Attendance Records Table -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Attendance Records</h5>
+                    <h5 class="mb-0">
+                        <i class="bi bi-file-text"></i> Attendance Records
+                    </h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
