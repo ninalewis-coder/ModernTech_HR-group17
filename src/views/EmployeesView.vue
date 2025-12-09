@@ -14,9 +14,11 @@
             </div> 
         </div>
         <div class="container-fluid">
-            <button class="btn btn-dark float-end" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
-                <i class="bi bi-plus-circle"></i> Add Employee
-            </button>
+            <div >
+                <button class="btn btn-dark float-end" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
+                    <i class="bi bi-plus-circle"></i> Add Employee
+                </button>
+            </div>
         </div>
 
 
@@ -43,7 +45,7 @@
 
             <!-- Statistics Cards -->
             <div class="row mb-4">
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+                <div class="col-lg- col-md-6 col-sm-12 mb-3">
                     <div class="card bg-primary text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Total Employees</h6>

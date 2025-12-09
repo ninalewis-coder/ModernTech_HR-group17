@@ -1,6 +1,6 @@
 <template>
     <div class="payroll-container">
-        <div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
             <div class="col-md-12 col-sm-12 mb-12">
                 <div class="card m-1" style="background: linear-gradient(to right, rgb(122, 108, 202), rgb(161, 150, 225))">
                     <div class="card-body" style="color:white">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="d-flex justify-content-between align-items-center mb-4">
+            <div >
                 <button class="btn btn-dark float-end" data-bs-toggle="modal" data-bs-target="#payrollModal">
                     <i class="bi bi-plus-circle"></i> Process Payroll
                 </button>
@@ -20,7 +20,7 @@
 
             <!-- Payroll Statistics -->
             <div class="row mb-4">
-                <div class="col-md-3 mb-3">
+                <div class="col-lg- col-md-6 col-sm-12 mb-3">
                     <div class="card bg-info text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Total Payroll</h6>
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-lg- col-md-6 col-sm-12 mb-3">
                     <div class="card bg-success text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Avg Salary</h6>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-lg- col-md-6 col-sm-12 mb-3">
                     <div class="card bg-warning text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Total Hours</h6>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-lg- col-md-6 col-sm-12 mb-3">
                     <div class="card bg-danger text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Deductions</h6>
@@ -58,7 +58,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center" style="background-color: rgb(122, 108, 202); color: white;">
                     <h5 class="mb-0">Payroll Records</h5>
-                    <button class="btn btn-sm btn-success" @click="generateAllPayslips">
+                    <button class="btn btn-sm bg-success" @click="generateAllPayslips">
                         Generate All Payslips
                     </button>
                 </div>
@@ -344,13 +344,19 @@ onMounted(() => {
 
 <style scoped>
 .payroll-container {
-    padding-top: 80px;
+    padding-top: 90px;
     padding-bottom: 30px;
 }
 
 .card {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .table-responsive {

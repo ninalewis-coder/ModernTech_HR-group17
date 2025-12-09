@@ -1,6 +1,6 @@
 <template>
     <div class="leave-container">
-        <div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
             <div class="col-md-12 col-sm-12 mb-12">
                 <div class="card m-1" style="background: linear-gradient(to right, rgb(122, 108, 202), rgb(161, 150, 225))">
                     <div class="card-body" style="color:white">
@@ -13,8 +13,8 @@
         </div>
 
         <div class="container-fluid">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#leaveModal">
+            <div>
+                <button class="btn btn-dark float-end" data-bs-toggle="modal" data-bs-target="#leaveModal">
                     <i class="bi bi-plus-circle"></i> Request Leave
                 </button>
             </div>
@@ -22,7 +22,7 @@
             <!-- Request Statistics -->
             <div class="row mb-4">
                 <div class="col-md-4 mb-3">
-                    <div class="card bg-warning text-dark">
+                    <div class="card bg-warning text-light">
                         <div class="card-body text-center">
                             <h6 class="card-title">Pending Requests</h6>
                             <h2>{{ pendingCount }}</h2>
@@ -360,13 +360,19 @@ onMounted(() => {
 
 <style scoped>
 .leave-container {
-    padding-top: 80px;
+    padding-top: 90px;
     padding-bottom: 30px;
 }
 
 .card {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .nav-link {
