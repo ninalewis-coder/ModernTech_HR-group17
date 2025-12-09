@@ -57,7 +57,9 @@
             <!-- Payroll Records Table -->
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center" style="background-color: rgb(122, 108, 202); color: white;">
-                    <h5 class="mb-0">Payroll Records</h5>
+                    <h5 class="mb-0">
+                        <i class="bi bi-file-text"></i> Payroll Records
+                    </h5>
                     <button class="btn btn-sm bg-success" @click="generateAllPayslips">
                         Generate All Payslips
                     </button>
