@@ -22,7 +22,7 @@
 
             <!-- Key Metrics -->
             <div class="row mb-4 pt-4 ">
-                <div class="col-md-3 col-sm-6 mb-3">
+                <div class="col-md-4 col-sm-12 mb-3">
                     <div class="metric-card card h-100 w-100">
                         <div class="card-body">
                             <h5 class="card-title">Total Employees</h5>
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 mb-3">
+                <div class="col-md-4 col-sm-12 mb-3">
                     <div class="metric-card card h-100">
                         <div class="card-body">
                             <h5 class="card-title">Pending Leave Requests</h5>
@@ -38,15 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="metric-card card h-80 w-80">
-                        <div class="card-body">
-                            <h5 class="card-title">Pending Payroll</h5>
-                            <p class="card-text fw-bold fs-3">{{ "?" }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
+                <div class="col-md-4 col-sm-12 mb-3">
                     <div class="metric-card card h-100 w-100">
                         <div class="card-body">
                             <h5 class="card-title">Departments</h5>

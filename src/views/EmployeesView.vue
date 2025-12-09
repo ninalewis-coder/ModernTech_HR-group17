@@ -43,7 +43,7 @@
 
             <!-- Statistics Cards -->
             <div class="row mb-4">
-                <div class="col-md-6 col-sm-6 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                     <div class="card bg-primary text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Total Employees</h6>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                     <div class="card bg-success text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Departments</h6>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                     <div class="card bg-info text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Average Salary</h6>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 mb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                     <div class="card bg-warning text-white">
                         <div class="card-body text-center">
                             <h6 class="card-title">Total Payroll</h6>
@@ -334,6 +334,7 @@ onMounted(() => {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.2s;
+    margin: 10px;
 }
 
 .card:hover {
