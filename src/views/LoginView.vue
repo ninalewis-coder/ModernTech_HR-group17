@@ -1,143 +1,161 @@
 <template>
-  <div class="login-page">
-    <div class="background">
-    <div class="login-box">
-        
-    <router-view />
-      <h2>Login</h2>
+  <div class="login-container">
+    <div class="container d-flex align-items-center justify-content-center min-vh-100">
+      <div class="login-body p-5 text-center">
+        <h1 class="card-title fw-bold text-purple">ModernTech HR System</h1>
+        <p class="text-muted">Employee and Payroll Management</p>
 
-      <form @submit.prevent="login">
-        <label>Email</label>
-        <input type="email" v-model="email" required />
+        <form @submit.prevent="handleLogin" class="mt-4">
+          <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              id="email"
+              v-model="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
 
-        <label>Password</label>
-        <input type="password" v-model="password" required />
+          <div class="mb-3">
+            <label for="password" class="form-label fw-bold">Password</label>
+            <input
+              type="password"
+              class="form-control form-control-lg"
+              id="password"
+              v-model="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
 
-        <button type="submit">Login</button>
-      </form>
+          <div
+            v-if="errorMessage"
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+          >
+            {{ errorMessage }}
+            <button type="button" class="btn-close" @click="errorMessage = ''"></button>
+          </div>
 
-      <p v-if="error" class="error">{{ error }}</p>
-      <div>
-    <div v-if="step === 1">
-      <input v-model="email" placeholder="Enter your email" />
-      <button @click="sendReset">Reset Password</button>
-      <p v-if="error">{{ error }}</p>
+          <button type="submit" class="btn btn-purple btn-lg w-100 mb-3">Login</button>
+        </form>
+
+        <hr />
+
+        <div class="demo-credentials">
+          <h6 class="fw-bold mb-3">Demo Credentials (Admin & Manager Only):</h6>
+
+          <div class="credential-item mb-2">
+            <small><strong>Admin:</strong></small><br />
+            <small class="text-muted">Email: hr.admin@moderntech.com</small><br />
+            <small class="text-muted">Password: admin123</small>
+          </div>
+
+          <div class="credential-item mb-2">
+            <small><strong>Manager:</strong></small><br />
+            <small class="text-muted">Email: hr.manager@moderntech.com</small><br />
+            <small class="text-muted">Password: manager123</small>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div v-else-if="step === 2">
-      <input v-model="newPassword" type="password" placeholder="New password" />
-      <input v-model="confirmNew" type="password" placeholder="Confirm password" />
-      <button @click="updatePassword">Forgot Password</button>
-      <p v-if="error">{{ error }}</p>
-      <p v-if="success">{{ success }}</p>
-    </div>
-  </div>
-    </div>
-  </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+<script>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import Logo from '@/assets/logo.png'
 
+export default {
+  name: 'LoginView',
 
-const router = useRouter();
+  setup() {
+    const router = useRouter()
+    const email = ref('')
+    const password = ref('')
+    const errorMessage = ref('')
 
-const email = ref("");
-const password = ref("");
-const error = ref("");
+    const handleLogin = () => {
+      errorMessage.value = ''
 
-// Shared password for now
-const defaultPassword = "1234";
+      const user = store.login(email.value, password.value)
 
-// Full employee list
-const employees = [
-  { employeeId: 1, name: "Sibongile Nkosi", position: "Software Engineer", contact: "sibongile.nkosi@moderntech.com" },
-  { employeeId: 2, name: "Lungile Moyo", position: "HR Manager", contact: "lungile.moyo@moderntech.com" },
-  { employeeId: 3, name: "Thabo Molefe", position: "Quality Analyst", contact: "thabo.molefe@moderntech.com" },
-  { employeeId: 4, name: "Keshav Naidoo", position: "Sales Representative", contact: "keshav.naidoo@moderntech.com" },
-  { employeeId: 5, name: "Zanele Khumalo", position: "Marketing Specialist", contact: "zanele.khumalo@moderntech.com" },
-  { employeeId: 6, name: "Sipho Zulu", position: "UI/UX Designer", contact: "sipho.zulu@moderntech.com" },
-  { employeeId: 7, name: "Naledi Moeketsi", position: "DevOps Engineer", contact: "naledi.moeketsi@moderntech.com" },
-  { employeeId: 8, name: "Farai Gumbo", position: "Content Strategist", contact: "farai.gumbo@moderntech.com" },
-  { employeeId: 9, name: "Karabo Dlamini", position: "Accountant", contact: "karabo.dlamini@moderntech.com" },
-  { employeeId: 10, name: "Fatima Patel", position: "Customer Support Lead", contact: "fatima.patel@moderntech.com" }
-];
+      if (!user) {
+        errorMessage.value = 'Access denied. Only HR admin or HR manager can log in.'
+        password.value = ''
+        return
+      }
 
-const login = () => {
-  // Check password first
-  if (password.value !== defaultPassword) {
-    error.value = "Incorrect password";
-    return;
+      localStorage.setItem('role', user.role)
+      router.push('/dashboard')
+    }
+
+    return {
+      email,
+      password,
+      errorMessage,
+      handleLogin
+    }
   }
-
-  // Find employee by email
-  const user = employees.find(e => e.contact === email.value);
-
-  if (!user) {
-    error.value = "Email not recognized";
-    return;
-  }
-
-  // HR admin login
-  if (user.position === "HR Manager") {
-    localStorage.setItem("role", "hr");
-    localStorage.setItem("userName", user.name);
-    router.push("/admin-dashboard");
-  }
-  // Employee login
-  else {
-    localStorage.setItem("role", "employee");
-    localStorage.setItem("userName", user.name);
-    localStorage.setItem("employeeId", user.employeeId);
-    router.push("/employee-dashboard");
-  }
-};
+}
 </script>
 
-
-<style>
-.login-page {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
+<style scoped>
+.login-container {
+  display: flex;                 
   align-items: center;
-  background: #f3f3f3;
+  justify-content: center;
+  min-height: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  position: relative;
 }
-.login-box {
-  width: 650px;
-  padding: 160px;
-  border-radius: 12px;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;                      ; 
+  z-index: 0;
+  border-radius: 0;              
 }
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+
+
+.text-purple {
+  color: rgb(163, 101, 201);
 }
-button {
-  width: 100%;
-  padding: 12px;
-  background: rgb(122, 108, 202);
-  color: white;
+
+.btn-purple {
+  background-color: rgb(163, 101, 201);
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  color: white;
 }
-.error {
-  color: red;
-  text-align: center;
-  margin-top: 10px;
+.btn-purple:hover {
+  background-color: rgb(163, 101, 201);
 }
-.background {
-  width: 600px;
-  height: 600px;
-  background-image: url('@/assets/logo.png');
-  background-size: cover;       
-  background-position: center;   
-  background-repeat: no-repeat;  
+
+.demo-credentials {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.credential-item {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 5px;
+  border-left: 4px solid #9b59b6;
+}
+
+@media (max-width: 576px) {
+  .login-body {
+    margin: 20px;
+    padding: 32px 24px;
+  }
 }
 </style>
+
