@@ -69,6 +69,18 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Logo from '@/assets/logo.png'
 
+// SIMPLE STORE REPLACEMENT
+// (Remove this if you already have a real store)
+const store = {
+  login(email, password) {
+    const users = [
+      { email: "hr.admin@moderntech.com", password: "admin123", role: "admin" },
+      { email: "hr.manager@moderntech.com", password: "manager123", role: "manager" }
+    ]
+    return users.find(u => u.email === email && u.password === password)
+  }
+}
+
 export default {
   name: 'LoginView',
 
@@ -97,7 +109,8 @@ export default {
       email,
       password,
       errorMessage,
-      handleLogin
+      handleLogin,
+      Logo
     }
   }
 }
@@ -105,24 +118,36 @@ export default {
 
 <style scoped>
 .login-container {
-  display: flex;                 
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
+  min-height: 100vh;
+
+  /* ★ Background Image */
+  background-image: url('@/assets/logo.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 50%;
+  background-size: 45%;
   position: relative;
 }
 
+/* ★ Fade effect overlay */
 .login-container::before {
   content: '';
   position: absolute;
-  inset: 0;                      ; 
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55); /* fade/soften */
   z-index: 0;
-  border-radius: 0;              
 }
 
+.login-body {
+  position: relative;
+  z-index: 1; /* shows above fade */
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
 
 .text-purple {
   color: rgb(163, 101, 201);
@@ -134,7 +159,7 @@ export default {
   color: white;
 }
 .btn-purple:hover {
-  background-color: rgb(163, 101, 201);
+  background-color: rgb(150, 85, 190);
 }
 
 .demo-credentials {
@@ -158,4 +183,3 @@ export default {
   }
 }
 </style>
-
